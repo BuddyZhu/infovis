@@ -1,28 +1,36 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <body>
+    <head>
+        <script>
+
+            // JavaScript code to draw a simple bar chart
+            document.addEventListener("DOMContentLoaded", function() {
+                const data = [30, 86, 168, 281, 303, 365];
+    
+                const scale = d3.scaleLinear()
+                                .domain([0, d3.max(data)])
+                                .range([0, 300]);
+    
+                d3.select("#visualization")
+                .selectAll("div")
+                .data(data)
+                .enter()
+                .append("div")
+                .style("width", function(d) { return scale(d) + "px"; })
+                .text(function(d) { return d; });
+            }); 
+    
+            <svg width="200" height="200">
+                <polygon points="100,10 40,198 190,78 10,78 160,198"
+                style="fill:pink;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+            </svg>
+    
+        </script>
+    </head>
+    
     <div id="visualization">
         <h1>BC Wildfire</h1>
+        <h2 style="color:white;">Hello ! I am some HTML code page inside Observable</h2>
     </div>
-    <script>
-
-        // JavaScript code to draw a simple bar chart
-        document.addEventListener("DOMContentLoaded", function() {
-            const data = [30, 86, 168, 281, 303, 365];
-
-            const scale = d3.scaleLinear()
-                            .domain([0, d3.max(data)])
-                            .range([0, 300]);
-
-            d3.select("#visualization")
-            .selectAll("div")
-            .data(data)
-            .enter()
-            .append("div")
-            .style("width", function(d) { return scale(d) + "px"; })
-            .text(function(d) { return d; });
-        }); 
-
-
-
-    </script>
+    
 </body>
